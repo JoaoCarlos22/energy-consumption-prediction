@@ -1,0 +1,76 @@
+Tarefa: Gere um dataset sintético em CSV com 500+ instâncias simulando consumo de energia em diferentes setores, seguindo rigorosamente as especificações abaixo.
+
+Objetivo: Dataset para treinar modelos de Machine Learning que prevejam demanda energética multissetorial.
+
+O dataset deve ter exatamente 7 colunas nesta ordem:
+
+1) Setor_Atividade (Categórico)
+Valores: "Residencial", "Comercial", "Industrial"
+
+2) Dia_da_Semana (Categórico)
+Valores: "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"
+Distribuir uniformemente
+
+3) Temperatura_Media (Numérico)
+Range realista: 15°C e 38°C
+Distribuição: normal com média 22°C
+Permite NaN: SIM (até 5%)
+
+4) Area_Metragem (Numérico)
+Tamanho da unidade em m²
+Residencial: 60-200 m²
+Comercial: 100-800 m²
+Industrial: 500-5000 m²
+Permite NaN: SIM (até 5%)
+
+5) Ocupantes_Ativos (Numérico inteiro)
+Pessoas/máquinas em operação
+Residencial: 2-6
+Comercial: 10-80
+Industrial: 20-200
+Permite NaN: SIM (até 5%)
+
+6) Num_Extintores (Numérico inteiro)
+Número de extintores (atributo irrelevante)
+Range: 1-20
+Permite NaN: SIM (até 5%)
+
+7) Consumo_Energia (Numérico - ALVO)
+Medido em kWh
+Permite NaN: NÂO
+
+Inserir exatamente 5% de NaN aleatoriamente
+Distribuição: igual em todas as 5 colunas numéricas
+Aplicação: aleatória em diferentes linhas
+Exceção: Setor_Atividade e Dia_da_Semana devem estar 100% completos
+
+2 RUÍDO ESTATÍSTICO
+Tipo: Ruído gaussiano
+Alvo: coluna Consumo_Energia
+Efeito: simula erros de medição realistas
+Aplicação: após cálculo base de consumo
+
+3 OUTLIERS
+Quantidade: 2% das quantidade de linhas totais = ~10 registros
+Padrão: Consumo 10x acima da média do setor
+Distribuição: aleatória entre setores
+Objetivo: simular consumo anômalo
+
+4 FORMATO DE SAÍDA OBRIGATÓRIO
+
+Arquivo: dataset_consumo_energia.csv
+
+Especificações:
+Separador: vírgula (,)
+Encoding: UTF-8
+Decimal: ponto (.)
+Com cabeçalho (primeira linha = nomes das colunas)
+Sem índice de linha
+
+Exemplo das 5 primeiras linhas:
+Setor_Atividade,Dia_da_Semana,Temperatura_Media,Area_Metragem,Ocupantes_Ativos,Num_Extintores,Consumo_Energia
+Residencial,Segunda,22.5,120.0,4,2,235.8
+Comercial,Terça,18.3,450.0,12.0,5,512.7
+Industrial,Quarta,25.1,1200.0,,3,2156.3
+Residencial,Quinta,,85.5,3,1,189.2
+Comercial,Sexta,20.0,380.0,11,4,498.5
