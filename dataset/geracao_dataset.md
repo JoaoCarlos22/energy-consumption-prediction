@@ -530,25 +530,25 @@ Comercial,Sexta,20.0,380.0,11,4,498.5
 ## 13. Fluxo de Geração — Prints do Processo
 
 
-**Figura 1** — *( Prompt 1 sendo enviado ao Claude)*
+**Prompt 01** — *( Prompt 1 sendo enviado ao Claude)*
 
-![Figura 1](imagem1.png)
-
----
-
-**Figura 2** — *(Coletando os critérios do Cluade)*
-
-![Figura 2](imagem2.png)
+![Figura 1](../imagens/print_prompt/prompt01.png)
 
 ---
 
-**Figura 3** — *(Prompt 2 sendo enviado ao Claude)*
+**Coleta de Dados** — *(Coletando os critérios do Cluade)*
 
-![Figura 3](imagem3.png)
+![Figura 2](../imagens/print_prompt/coleta_de_criterios.png)
 
 ---
 
-**Figura 4** — *(Prompt 3 sendo enviado ao Claude)*
+**Prompt 02** — *(Prompt 2 sendo enviado ao Claude)*
 
-![Figura 4](imagem4.png)
+![Figura 3](../imagens/print_prompt/prompt02.png)
+
+---
+
+**Prompt 03** — *(Prompt 3 sendo enviado ao Claude)*
+
+![Figura 4](../imagens/print_prompt/prompt03.png)
 
