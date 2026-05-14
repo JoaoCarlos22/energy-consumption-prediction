@@ -18,6 +18,8 @@ em [AED](../analise/analise_exploratoria.md)) com o objetivo de identificar:
 
 Com base nessa análise, foram definidos os filtros descritos a seguir.
 
+> Obs: Os filtros foram estritamente aplicados nesta ordem para garantir a integridade e coesão dos dados.
+
 ## 1. Tratamento de Valores Faltantes (ReplaceMissingValues)
 
 ### Objetivo
