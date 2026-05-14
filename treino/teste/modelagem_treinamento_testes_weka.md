@@ -14,11 +14,11 @@ Inicialmente, foi carregado no Weka o dataset resultante da etapa de pré-proces
 
 Na aba **Preprocess**, foi aberto o arquivo processado salvo anteriormente.
 
-![Abertura do dataset processado no Weka](image.png)
+![Abertura do dataset processado no Weka](../../imagens/prints_weka/image.png)
 
 Após o carregamento, verificou-se se o atributo `Consumo_Energia` estava corretamente definido como classe. Essa verificação é importante porque o Weka utiliza o atributo selecionado como referência para o treinamento e avaliação dos algoritmos.
 
-![Definição do atributo classe Consumo_Energia](image-1.png)
+![Definição do atributo classe Consumo_Energia](../../imagens/prints_weka/image-1.png)
 
 ---
 
@@ -35,7 +35,7 @@ Test options: Cross-validation
 Folds: 10
 ```
 
-![Configuração da validação cruzada 10-fold](image-2.png)
+![Configuração da validação cruzada 10-fold](../../imagens/prints_weka/image-2.png)
 
 Além da validação cruzada, também foi considerada a estratégia **Percentage Split**, com divisão de 70% dos dados para treinamento e 30% para teste. Essa segunda configuração foi utilizada como cenário complementar, permitindo observar o comportamento dos algoritmos em uma divisão simples dos dados.
 
@@ -46,7 +46,7 @@ Test options: Percentage split
 Percentage: 70%
 ```
 
-![Configuração do percentage split 70 30](image-3.png)
+![Configuração do percentage split 70 30](../../imagens/prints_weka/image-3.png)
 
 ---
 
@@ -62,15 +62,15 @@ Caminho no Weka:
 Classify > Choose > rules > ZeroR
 ```
 
-![Configuração do algoritmo ZeroR](image-5.png)
+![Configuração do algoritmo ZeroR](../../imagens/prints_weka/image-5.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do ZeroR com validação cruzada](image-4.png)
+![Resultado do ZeroR com validação cruzada](../../imagens/prints_weka/image-4.png)
 
 Resultado obtido com Percentage Split:
 
-![Resultado do ZeroR com percentage split](image-6.png)
+![Resultado do ZeroR com percentage split](../../imagens/prints_weka/image-6.png)
 
 ### Análise do ZeroR
 
@@ -88,15 +88,15 @@ Caminho no Weka:
 Classify > Choose > trees > RandomTree
 ```
 
-![Configuração do algoritmo RandomTree](image-9.png)
+![Configuração do algoritmo RandomTree](../../imagens/prints_weka/image-9.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do RandomTree com validação cruzada](image-10.png)
+![Resultado do RandomTree com validação cruzada](../../imagens/prints_weka/image-10.png)
 
 Resultado obtido com Percentage Split:
 
-![Resultado do RandomTree com percentage split](image-11.png)
+![Resultado do RandomTree com percentage split](../../imagens/prints_weka/image-11.png)
 
 ### Análise do RandomTree
 
@@ -123,15 +123,15 @@ maxDepth: 0
 seed: 1
 ```
 
-![Configuração do algoritmo RandomForest](image-12.png)
+![Configuração do algoritmo RandomForest](../../imagens/prints_weka/image-12.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do RandomForest com validação cruzada](image-15.png)
+![Resultado do RandomForest com validação cruzada](../../imagens/prints_weka/image-15.png)
 
 Resultado obtido com Percentage Split:
 
-![Resultado do RandomForest com percentage split](image-16.png)
+![Resultado do RandomForest com percentage split](../../imagens/prints_weka/image-16.png)
 
 ### Análise do RandomForest
 
@@ -155,13 +155,13 @@ Configuração inicial utilizada:
 KNN: 1
 ```
 
-![Configuração do algoritmo IBk com k igual a 1](image-17.png)
+![Configuração do algoritmo IBk com k igual a 1](../../imagens/prints_weka/image-17.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do IBk com k igual a 1 Cross-validation](image-18.png)
+![Resultado do IBk com k igual a 1 Cross-validation](../../imagens/prints_weka/image-18.png)
 
-![Resultado do IBk com k igual a 1 Percent split](image-19.png)
+![Resultado do IBk com k igual a 1 Percent split](../../imagens/prints_weka/image-19.png)
 
 Também foram testados valores alternativos de k:
 
@@ -170,17 +170,17 @@ KNN: 3
 KNN: 5
 ```
 
-![Configuração do algoritmo IBk com k igual a 3](image-21.png)
+![Configuração do algoritmo IBk com k igual a 3](../../imagens/prints_weka/image-21.png)
 
-![Resultado do IBk com k igual a 3 Cross-validation](image-20.png)
+![Resultado do IBk com k igual a 3 Cross-validation](../../imagens/prints_weka/image-20.png)
 
-![Resultado do IBk com k igual a 3 Percent split](image-22.png)
+![Resultado do IBk com k igual a 3 Percent split](../../imagens/prints_weka/image-22.png)
 
-![Configuração do algoritmo IBk com k igual a 5](image-23.png)
+![Configuração do algoritmo IBk com k igual a 5](../../imagens/prints_weka/image-23.png)
 
-![Resultado do IBk com k igual a 5 Cross-validation](image-24.png)
+![Resultado do IBk com k igual a 5 Cross-validation](../../imagens/prints_weka/image-24.png)
 
-![Resultado do IBk com k igual a 5 Percent split](image-25.png)
+![Resultado do IBk com k igual a 5 Percent split](../../imagens/prints_weka/image-25.png)
 
 ### Análise do IBk
 
@@ -198,15 +198,15 @@ Caminho no Weka:
 Classify > Choose > functions > SMO
 ```
 
-![Configuração do algoritmo SMO](image-26.png)
+![Configuração do algoritmo SMO](../../imagens/prints_weka/image-26.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do SMO com validação cruzada](image-27.png)
+![Resultado do SMO com validação cruzada](../../imagens/prints_weka/image-27.png)
 
 Resultado obtido com Percentage Split:
 
-![Resultado do SMO com percentage split](image-28.png)
+![Resultado do SMO com percentage split](../../imagens/prints_weka/image-28.png)
 
 ### Análise do SMO
 
@@ -234,15 +234,15 @@ trainingTime: 500
 hiddenLayers: a
 ```
 
-![Configuração do algoritmo MultilayerPerceptron](image-30.png)
+![Configuração do algoritmo MultilayerPerceptron](../../imagens/prints_weka/image-30.png)
 
 Resultado obtido com validação cruzada:
 
-![Resultado do MultilayerPerceptron com validação cruzada](image-29.png)
+![Resultado do MultilayerPerceptron com validação cruzada](../../imagens/prints_weka/image-29.png)
 
 Resultado obtido com Percentage Split:
 
-![Resultado do MultilayerPerceptron com percentage split](image-31.png)
+![Resultado do MultilayerPerceptron com percentage split](../../imagens/prints_weka/image-31.png)
 
 ### Análise do Multilayer Perceptron
 
@@ -264,39 +264,39 @@ Foram testadas três configurações, variando o número de vizinhos mais próxi
 
 Print da configuração IBk com `k=1`:
 
-![Configuração do IBk com k igual a 1](image-17.png)
+![Configuração do IBk com k igual a 1](../../imagens/prints_weka/image-17.png)
 
 Resultado do IBk com `k=1` usando validação cruzada:
 
-![Resultado do IBk com k igual a 1 Cross-validation](image-18.png)
+![Resultado do IBk com k igual a 1 Cross-validation](../../imagens/prints_weka/image-18.png)
 
 Resultado do IBk com `k=1` usando Percentage Split:
 
-![Resultado do IBk com k igual a 1 Percent split](image-19.png)
+![Resultado do IBk com k igual a 1 Percent split](../../imagens/prints_weka/image-19.png)
 
 Print da configuração IBk com `k=3`:
 
-![Configuração do IBk com k igual a 3](image-21.png)
+![Configuração do IBk com k igual a 3](../../imagens/prints_weka/image-21.png)
 
 Resultado do IBk com `k=3` usando validação cruzada:
 
-![Resultado do IBk com k igual a 3 Cross-validation](image-20.png)
+![Resultado do IBk com k igual a 3 Cross-validation](../../imagens/prints_weka/image-20.png)
 
 Resultado do IBk com `k=3` usando Percentage Split:
 
-![Resultado do IBk com k igual a 3 Percent split](image-22.png)
+![Resultado do IBk com k igual a 3 Percent split](../../imagens/prints_weka/image-22.png)
 
 Print da configuração IBk com `k=5`:
 
-![Configuração do IBk com k igual a 5](image-23.png)
+![Configuração do IBk com k igual a 5](../../imagens/prints_weka/image-23.png)
 
 Resultado do IBk com `k=5` usando validação cruzada:
 
-![Resultado do IBk com k igual a 5 Cross-validation](image-24.png)
+![Resultado do IBk com k igual a 5 Cross-validation](../../imagens/prints_weka/image-24.png)
 
 Resultado do IBk com `k=5` usando Percentage Split:
 
-![Resultado do IBk com k igual a 5 Percent split](image-25.png)
+![Resultado do IBk com k igual a 5 Percent split](../../imagens/prints_weka/image-25.png)
 
 ### Análise do Ajuste de Hiperparâmetros
 
@@ -426,25 +426,25 @@ Para a apresentação, foram selecionados gráficos objetivos, priorizando a com
 
 Esse gráfico deve apresentar o coeficiente de correlação obtido por cada algoritmo na validação cruzada com 10 folds. Ele permite identificar quais modelos apresentaram maior associação entre os valores previstos e os valores reais.
 
-![Comparação da Correlação dos Modelos - 10-fold CV](plots/01_comparacao_correlacao_10fold_cv.png)
+![Comparação da Correlação dos Modelos - 10-fold CV](../../imagens/visualizacoes/01_comparacao_correlacao_10fold_cv.png)
 
 ### 14.2 Comparação do RMSE dos Modelos
 
 O RMSE deve ser utilizado para comparar os modelos considerando a penalização de erros maiores. Modelos com menor RMSE são preferíveis, pois apresentam menor desvio médio quadrático em relação aos valores reais.
 
-![Comparação do RMSE dos Modelos - 10-fold CV](plots/02_comparacao_rmse_10fold_cv.png)
+![Comparação do RMSE dos Modelos - 10-fold CV](../../imagens/visualizacoes/02_comparacao_rmse_10fold_cv.png)
 
 ### 14.3 Comparação do MAE dos Modelos
 
 O MAE deve ser utilizado para complementar a análise do RMSE, pois representa o erro médio absoluto de forma mais direta. Quanto menor o MAE, mais próximas são as previsões do modelo em relação aos valores reais.
 
-![Comparação do MAE dos Modelos - 10-fold CV](plots/03_comparacao_mae_10fold_cv.png)
+![Comparação do MAE dos Modelos - 10-fold CV](../../imagens/visualizacoes/03_comparacao_mae_10fold_cv.png)
 
 ### 14.4 Impacto do Ajuste de Hiperparâmetros
 
 Esse gráfico deve apresentar o impacto da variação do parâmetro `k` no desempenho do IBk. Observa-se que o aumento de `k=1` para `k=5` reduziu o RMSE, indicando melhora na estabilidade das predições.
 
-![Impacto do valor de k no IBk](plots/06_impacto_k_ibk.png)
+![Impacto do valor de k no IBk](../../imagens/visualizacoes/06_impacto_k_ibk.png)
 ---
 
 ## 15. Discussão Comparativa dos Resultados
@@ -461,7 +461,7 @@ O **IBk** demonstrou melhora progressiva conforme o valor de `k` aumentou. O mod
 
 O **MultilayerPerceptron** apresentou desempenho razoável na validação cruzada, com correlação de `0.8948` e RMSE de `0.4482`. Entretanto, no percentage split 70/30, apesar da correlação de `0.9067`, o modelo apresentou MAE de `0.6228` e RMSE de `0.6802`, indicando instabilidade e maior erro nesse cenário.
 
-![Comparação do RMSE entre 10-fold CV e Split 70/30](plots/04_rmse_10fold_vs_split.png)
+![Comparação do RMSE entre 10-fold CV e Split 70/30](../../imagens/visualizacoes/04_rmse_10fold_vs_split.png)
 
 ---
 
