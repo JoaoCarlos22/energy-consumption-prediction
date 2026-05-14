@@ -1,0 +1,4 @@
+Realize uma pesquisa profunda sobre a aplicação de tarefas de aprendizado de máquina (regressão, classificação, agrupamento e regras de associação) na análise e previsão do consumo de energia elétrica. Durante a pesquisa, aborde os seguintes pontos:
+
+1. Ferramentas e Algoritmos
+2. Contextos de Aplicação
