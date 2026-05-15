@@ -1,17 +1,19 @@
 ﻿Algoritmo,Configuração,Validação,Correlação,MAE,RMSE,RAE (%),RRSE (%),Instâncias
 ZeroR,Padrão,10-fold cross-validation,-0.0933,0.8359,0.9876,100.0,100.0,520
 ZeroR,Padrão,Percentage split 70/30,0.0,0.8431,0.9618,100.0,100.0,156
+LinearRegression,"S=0, R=1.0E-8",10-fold cross-validation,0.9183,0.1673,0.3906,20.0170,39.5499,520
+LinearRegression,"S=0, R=1.0E-8",Percentage split 70/30,0.9204,0.1587,0.3775,18.8214,39.2560,156
+SMOreg,"C=1.0, PolyKernel E=1.0",10-fold cross-validation,0.9187,0.1512,0.3921,18.0928,39.706,520
+SMOreg,"C=1.0, PolyKernel E=1.0",Percentage split 70/30,0.9182,0.148,0.3831,17.5483,39.8309,156
 RandomForest,100 árvores,10-fold cross-validation,0.9177,0.1627,0.392,19.463,39.698,520
 RandomForest,100 árvores,Percentage split 70/30,0.9208,0.1516,0.3745,17.9772,38.9433,156
 RandomTree,"K=0, M=1.0",10-fold cross-validation,0.8273,0.2534,0.5934,30.3143,60.0912,520
 RandomTree,"K=0, M=1.0",Percentage split 70/30,0.9084,0.216,0.4092,25.6194,42.5455,156
 IBk,k=1,10-fold cross-validation,0.8518,0.2415,0.5383,28.884,54.5081,520
-IBk,k=1,Percentage split 70/30,0.8702,0.2272,0.4856,26.9526,50.4957,156
 IBk,k=3,10-fold cross-validation,0.8843,0.2315,0.4655,27.6908,47.134,520
-IBk,k=3,Percentage split 70/30,0.8793,0.2346,0.4607,27.8226,47.8989,156
 IBk,k=5,10-fold cross-validation,0.8928,0.2297,0.4462,27.479,45.1823,520
+IBk,k=1,Percentage split 70/30,0.8702,0.2272,0.4856,26.9526,50.4957,156
+IBk,k=3,Percentage split 70/30,0.8793,0.2346,0.4607,27.8226,47.8989,156
 IBk,k=5,Percentage split 70/30,0.8951,0.2217,0.429,26.2913,44.6074,156
-SMOreg,"C=1.0, PolyKernel E=1.0",10-fold cross-validation,0.9187,0.1512,0.3921,18.0928,39.706,520
-SMOreg,"C=1.0, PolyKernel E=1.0",Percentage split 70/30,0.9182,0.148,0.3831,17.5483,39.8309,156
 MultilayerPerceptron,"L=0.3, M=0.2, N=500, H=a",10-fold cross-validation,0.8948,0.227,0.4482,27.1507,45.3832,520
 MultilayerPerceptron,"L=0.3, M=0.2, N=500, H=a",Percentage split 70/30,0.9067,0.6228,0.6802,73.8735,70.7219,156

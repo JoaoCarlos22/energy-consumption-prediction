@@ -139,7 +139,44 @@ O RandomForest foi utilizado por sua capacidade de reduzir a variância de árvo
 
 ---
 
-## 6. Treinamento com o Algoritmo IBk
+## 6. Treinamento com o Algoritmo LinearRegression
+
+O **LinearRegression** é um algoritmo de regressão linear utilizado para estimar a variável alvo a partir de uma combinação linear dos atributos de entrada. Esse modelo foi incluído por ser uma alternativa simples, interpretável e útil para verificar se a relação entre os atributos e o consumo de energia pode ser bem representada por uma função linear.
+
+Caminho no Weka:
+
+```text
+Classify > Choose > functions > LinearRegression
+```
+
+Configuração inicial utilizada:
+
+```text
+attributeSelectionMethod: M5 method
+eliminateColinearAttributes: True
+ridge: 1.0E-8
+useQRDecomposition: False
+```
+
+![Configuração do algoritmo LinearRegression](../../imagens/prints_weka/image-32.png)
+
+Resultado obtido com validação cruzada:
+
+![Resultado do LinearRegression com validação cruzada](../../imagens/prints_weka/image-33.png)
+
+Resultado obtido com Percentage Split:
+
+![Resultado do LinearRegression com percentage split](../../imagens/prints_weka/image-34.png)
+
+### Análise do LinearRegression
+
+O LinearRegression apresentou desempenho muito competitivo em relação aos demais modelos. Na validação cruzada, obteve coeficiente de correlação de `0.9183`, MAE de `0.1673` e RMSE de `0.3906`. No Percentage Split 70/30, apresentou correlação de `0.9204`, MAE de `0.1587` e RMSE de `0.3775`.
+
+Esses resultados indicam que parte importante do comportamento do consumo de energia foi bem representada por relações lineares entre os atributos. Além disso, por ser um modelo mais simples e interpretável, o LinearRegression serve como uma referência forte para comparação com algoritmos mais complexos, como RandomForest, SMOreg e MultilayerPerceptron.
+
+---
+
+## 7. Treinamento com o Algoritmo IBk
 
 O **IBk** é a implementação do algoritmo K-Nearest Neighbors no Weka. Esse método classifica ou estima uma instância com base nas instâncias mais próximas no conjunto de treinamento.
 
@@ -188,7 +225,7 @@ O IBk foi avaliado porque é um algoritmo sensível à distância entre os regis
 
 ---
 
-## 7. Treinamento com o Algoritmo SMO
+## 8. Treinamento com o Algoritmo SMO
 
 O **SMO** é a implementação de máquinas de vetor de suporte no Weka para tarefas de classificação. Esse algoritmo busca encontrar uma fronteira de decisão capaz de separar as classes com a maior margem possível.
 
@@ -215,7 +252,7 @@ O SMO foi avaliado por ser um modelo baseado em margem, adequado para problemas 
 ---
 
 
-## 8. Treinamento com o Algoritmo Multilayer Perceptron
+## 9. Treinamento com o Algoritmo Multilayer Perceptron
 
 O **Multilayer Perceptron** é uma rede neural artificial capaz de aprender relações não lineares entre os atributos de entrada e a variável alvo. Esse modelo pode apresentar bom desempenho, mas também exige maior cuidado com tempo de treinamento e possibilidade de sobreajuste.
 
@@ -250,7 +287,7 @@ O Multilayer Perceptron foi testado para avaliar a capacidade de uma rede neural
 
 ---
 
-## 9. Ajuste de Hiperparâmetros
+## 10. Ajuste de Hiperparâmetros
 
 Após a execução inicial dos algoritmos, foi selecionado o **IBk** para ajuste de hiperparâmetros. A escolha ocorreu porque esse algoritmo depende diretamente do parâmetro `k`, que define a quantidade de vizinhos considerados durante a predição. Como o dataset já havia passado pela etapa de padronização, o IBk tornou-se adequado para análise, pois seu funcionamento é baseado em distância entre instâncias.
 
@@ -308,7 +345,7 @@ A melhor configuração entre as testadas foi obtida com `k=5`, que apresentou c
 
 ---
 
-## 10. Organização dos Resultados de Classificação
+## 11. Organização dos Resultados de Classificação
 
 Nesta execução, o atributo alvo `Consumo_Energia` permaneceu como variável numérica. Por esse motivo, os algoritmos foram avaliados como modelos de **regressão**, e não como modelos de classificação.
 
@@ -337,15 +374,16 @@ Essas métricas são adequadas para avaliar a proximidade entre os valores previ
 
 ---
 
-## 11. Organização dos Resultados de Regressão
+## 12. Organização dos Resultados de Regressão
 
 Como o atributo `Consumo_Energia` permaneceu numérico, os resultados foram organizados com as métricas de regressão apresentadas pelo Weka.
 
-### 11.1 Resultados com Validação Cruzada 10-fold
+### 12.1 Resultados com Validação Cruzada 10-fold
 
 | Algoritmo | Avaliação | Correlação | MAE | RMSE | RAE (%) | RRSE (%) | Observações |
 |----------|-----------|------------|-----|------|---------|----------|-------------|
 | ZeroR | 10-fold CV | -0.0933 | 0.8359 | 0.9876 | 100.0000 | 100.0000 | Baseline |
+| LinearRegression | 10-fold CV | 0.9183 | 0.1673 | 0.3906 | 20.0170 | 39.5499 | Regressão linear |
 | RandomTree | 10-fold CV | 0.8273 | 0.2534 | 0.5934 | 30.3143 | 60.0912 | Árvore aleatória individual |
 | RandomForest | 10-fold CV | 0.9177 | 0.1627 | 0.3920 | 19.4630 | 39.6980 | Ensemble com 100 árvores |
 | IBk k=1 | 10-fold CV | 0.8518 | 0.2415 | 0.5383 | 28.8840 | 54.5081 | Baseado em distância |
@@ -354,11 +392,12 @@ Como o atributo `Consumo_Energia` permaneceu numérico, os resultados foram orga
 | SMOreg | 10-fold CV | 0.9187 | 0.1512 | 0.3921 | 18.0928 | 39.7060 | SVM para regressão |
 | MultilayerPerceptron | 10-fold CV | 0.8948 | 0.2270 | 0.4482 | 27.1507 | 45.3832 | Rede neural |
 
-### 11.2 Resultados com Percentage Split 70/30
+### 12.2 Resultados com Percentage Split 70/30
 
 | Algoritmo | Avaliação | Correlação | MAE | RMSE | RAE (%) | RRSE (%) | Observações |
 |----------|-----------|------------|-----|------|---------|----------|-------------|
 | ZeroR | Split 70/30 | 0.0000 | 0.8431 | 0.9618 | 100.0000 | 100.0000 | Baseline |
+| LinearRegression | Split 70/30 | 0.9204 | 0.1587 | 0.3775 | 18.8214 | 39.2560 | Regressão linear |
 | RandomTree | Split 70/30 | 0.9084 | 0.2160 | 0.4092 | 25.6194 | 42.5455 | Árvore aleatória individual |
 | RandomForest | Split 70/30 | 0.9208 | 0.1516 | 0.3745 | 17.9772 | 38.9433 | Melhor RMSE no split |
 | IBk k=1 | Split 70/30 | 0.8702 | 0.2272 | 0.4856 | 26.9526 | 50.4957 | Baseado em distância |
@@ -379,7 +418,7 @@ O **RAE** e o **RRSE** indicam o erro relativo em comparação com um modelo de 
 
 ---
 
-## 12. Matriz de Confusão
+## 13. Matriz de Confusão
 
 Nesta etapa, a matriz de confusão **não foi gerada**, pois os experimentos foram executados como tarefa de **regressão**. A matriz de confusão é utilizada em problemas de classificação, quando a variável alvo possui classes nominais.
 
@@ -403,7 +442,7 @@ A ausência de matriz de confusão não representa falha metodológica, mas sim 
 
 ---
 
-## 13. Geração de Gráficos no Weka
+## 14. Geração de Gráficos no Weka
 
 Após cada execução, os resultados ficaram disponíveis na lista localizada no lado esquerdo da aba **Classify**. Para visualizar graficamente os erros do modelo, foi utilizado o seguinte procedimento:
 
@@ -414,46 +453,61 @@ Visualize classifier errors
 
 Para os experimentos de regressão, a visualização dos erros permite observar a distância entre os valores previstos e os valores reais. Quanto mais próximos os pontos estiverem da tendência esperada, melhor é o comportamento do modelo.
 
-Como os prints de configuração e resultados já foram inseridos nas seções anteriores com os nomes reais dos arquivos (`image-4.png`, `image-6.png`, `image-10.png`, `image-11.png`, `image-15.png`, `image-16.png`, `image-18.png`, `image-19.png`, `image-20.png`, `image-22.png`, `image-24.png`, `image-25.png`, `image-27.png`, `image-28.png`, `image-29.png` e `image-31.png`), esta seção fica destinada apenas à explicação do procedimento de visualização dos erros.
+Como os prints de configuração e resultados já foram inseridos nas seções anteriores com os nomes reais dos arquivos (`image-4.png`, `image-6.png`, `image-10.png`, `image-11.png`, `image-15.png`, `image-16.png`, `image-18.png`, `image-19.png`, `image-20.png`, `image-22.png`, `image-24.png`, `image-25.png`, `image-27.png`, `image-28.png`, `image-29.png`, `image-31.png`, `image-32.png`, `image-33.png` e `image-34.png`), esta seção fica destinada apenas à explicação do procedimento de visualização dos erros.
 
 ---
 
-## 14. Gráficos Utilizados na Apresentação
+## 15. Gráficos Utilizados na Apresentação
 
 Para a apresentação, foram selecionados gráficos objetivos, priorizando a comparação visual entre os modelos de regressão. Como os resultados desta etapa são de regressão, os gráficos mais adequados são de **correlação**, **MAE** e **RMSE**, em vez de gráficos de acurácia ou F1-score.
 
-### 14.1 Comparação da Correlação dos Modelos
+### 15.1 Comparação da Correlação dos Modelos
 
 Esse gráfico deve apresentar o coeficiente de correlação obtido por cada algoritmo na validação cruzada com 10 folds. Ele permite identificar quais modelos apresentaram maior associação entre os valores previstos e os valores reais.
 
 ![Comparação da Correlação dos Modelos - 10-fold CV](../../imagens/visualizacoes/01_comparacao_correlacao_10fold_cv.png)
 
-### 14.2 Comparação do RMSE dos Modelos
+### 15.2 Comparação do RMSE dos Modelos
 
 O RMSE deve ser utilizado para comparar os modelos considerando a penalização de erros maiores. Modelos com menor RMSE são preferíveis, pois apresentam menor desvio médio quadrático em relação aos valores reais.
 
 ![Comparação do RMSE dos Modelos - 10-fold CV](../../imagens/visualizacoes/02_comparacao_rmse_10fold_cv.png)
 
-### 14.3 Comparação do MAE dos Modelos
+### 15.3 Comparação do MAE dos Modelos
 
 O MAE deve ser utilizado para complementar a análise do RMSE, pois representa o erro médio absoluto de forma mais direta. Quanto menor o MAE, mais próximas são as previsões do modelo em relação aos valores reais.
 
 ![Comparação do MAE dos Modelos - 10-fold CV](../../imagens/visualizacoes/03_comparacao_mae_10fold_cv.png)
 
-### 14.4 Impacto do Ajuste de Hiperparâmetros
+### 15.4 Impacto do Ajuste de Hiperparâmetros
 
 Esse gráfico deve apresentar o impacto da variação do parâmetro `k` no desempenho do IBk. Observa-se que o aumento de `k=1` para `k=5` reduziu o RMSE, indicando melhora na estabilidade das predições.
 
 ![Impacto do valor de k no IBk](../../imagens/visualizacoes/06_impacto_k_ibk.png)
+
+### 15.5 Comparativo Geral dos Modelos - 10-fold CV
+
+Esse gráfico apresenta uma visão geral do desempenho dos modelos no cenário de validação cruzada com 10 folds. Como os experimentos foram executados como regressão, a comparação utiliza o coeficiente de correlação como medida principal de desempenho.
+
+![Comparativo geral dos modelos - 10-fold CV](../../imagens/visualizacoes/09_comparativo_geral_acuracia_10fold_cv.png)
+
+### 15.6 Comparativo Geral dos Modelos - Split 70/30
+
+Esse gráfico apresenta a mesma comparação geral, mas considerando o cenário de Percentage Split 70/30. Ele permite observar se o comportamento dos modelos se mantém estável quando avaliados em uma divisão simples entre treino e teste.
+
+![Comparativo geral dos modelos - Split 70/30](../../imagens/visualizacoes/10_comparativo_geral_acuracia_split_70_30.png)
+
 ---
 
-## 15. Discussão Comparativa dos Resultados
+## 16. Discussão Comparativa dos Resultados
 
 A comparação entre os algoritmos permitiu observar diferenças importantes de desempenho. O **ZeroR** serviu como modelo de referência, apresentando os maiores erros e correlação próxima de zero ou negativa. Esse comportamento era esperado, pois o ZeroR apenas prevê um valor médio, sem aprender relações entre os atributos.
 
 O **RandomTree** apresentou desempenho superior ao baseline, mas inferior ao RandomForest. Isso indica que uma única árvore consegue capturar parte da estrutura dos dados, porém é mais sensível à variação das instâncias e pode apresentar maior instabilidade.
 
 O **RandomForest** apresentou comportamento robusto nos dois cenários de avaliação. Na validação cruzada, obteve correlação de `0.9177` e RMSE de `0.3920`. No percentage split 70/30, apresentou correlação de `0.9208` e RMSE de `0.3745`, sendo o modelo com menor RMSE nesse cenário. Esse desempenho pode ser explicado pela combinação de múltiplas árvores, o que reduz a dependência de uma única estrutura de decisão.
+
+O **LinearRegression** também apresentou desempenho muito forte. Na validação cruzada, obteve correlação de `0.9183` e RMSE de `0.3906`, ficando entre os melhores resultados gerais. No percentage split 70/30, manteve desempenho estável, com correlação de `0.9204` e RMSE de `0.3775`. Esse comportamento indica que o dataset possui relações lineares relevantes entre os atributos preditores e o consumo de energia.
 
 O **SMOreg** apresentou o melhor desempenho na validação cruzada quando considerado o coeficiente de correlação, alcançando `0.9187`, além do menor MAE, com `0.1512`. Isso mostra que o modelo baseado em margem conseguiu realizar previsões próximas dos valores reais, sendo uma alternativa muito competitiva ao RandomForest.
 
@@ -465,7 +519,7 @@ O **MultilayerPerceptron** apresentou desempenho razoável na validação cruzad
 
 ---
 
-## 16. Escolha do Melhor Modelo
+## 17. Escolha do Melhor Modelo
 
 Após a comparação dos resultados, o melhor modelo foi definido considerando não apenas o maior valor de correlação, mas também o menor erro, a estabilidade entre os cenários avaliados e o comportamento geral das métricas.
 
@@ -473,15 +527,16 @@ Após a comparação dos resultados, o melhor modelo foi definido considerando n
 |---------|------------------|---------------|
 | Melhor desempenho geral | RandomForest | Apresentou alto coeficiente de correlação e menor RMSE no cenário de split 70/30 |
 | Menor erro absoluto médio | SMOreg | Obteve o menor MAE tanto na validação cruzada quanto no split 70/30 |
+| Menor RMSE na validação cruzada | LinearRegression | Obteve o menor RMSE no 10-fold CV, com valor de 0.3906 |
 | Menor erro quadrático | RandomForest | Apresentou o menor RMSE entre os modelos avaliados no split 70/30 |
 | Melhor estabilidade | RandomForest | Manteve desempenho consistente nos dois cenários de avaliação |
 | Melhor equilíbrio entre desempenho e robustez | RandomForest | Combinou boa correlação, baixo erro e maior robustez por ser um ensemble |
 
-> O modelo selecionado como melhor alternativa foi o **RandomForest**, pois apresentou melhor equilíbrio entre desempenho, estabilidade e capacidade de generalização. Embora o **SMOreg** tenha obtido a maior correlação e o menor MAE na validação cruzada, o RandomForest apresentou o menor RMSE no cenário de split 70/30 e manteve resultados consistentes nos dois cenários avaliados. Assim, considerando o conjunto das métricas, o RandomForest demonstrou comportamento mais robusto para a previsão do consumo de energia.
+> O modelo selecionado como melhor alternativa foi o **RandomForest**, pois apresentou melhor equilíbrio entre desempenho, estabilidade e capacidade de generalização. Embora o **LinearRegression** tenha obtido o menor RMSE na validação cruzada e o **SMOreg** tenha obtido a maior correlação e o menor MAE, o RandomForest apresentou o menor RMSE no cenário de split 70/30 e manteve resultados consistentes nos dois cenários avaliados. Assim, considerando o conjunto das métricas, o RandomForest demonstrou comportamento mais robusto para a previsão do consumo de energia.
 
 ---
 
-## 17. Limitações Observadas
+## 18. Limitações Observadas
 
 Apesar dos bons resultados obtidos, algumas limitações devem ser consideradas. A primeira limitação está relacionada ao tamanho do dataset, composto por 520 instâncias. Embora esse volume permita a execução de diferentes algoritmos no Weka, ainda pode limitar a generalização dos modelos para cenários mais amplos.
 
@@ -495,12 +550,12 @@ Por fim, os resultados dependem das escolhas realizadas durante o pré-processam
 
 ---
 
-## 18. Conclusão da Etapa de Modelagem
+## 19. Conclusão da Etapa de Modelagem
 
 A etapa de modelagem permitiu comparar diferentes algoritmos de aprendizado de máquina no Weka, avaliando seus desempenhos sobre o dataset de consumo de energia elétrica. A utilização da validação cruzada com 10 folds contribuiu para uma avaliação mais robusta, enquanto o percentage split 70/30 permitiu observar o comportamento dos modelos em uma divisão simples de treino e teste.
 
-A comparação entre os algoritmos evidenciou que modelos simples, como o ZeroR, são úteis como referência inicial, mas possuem capacidade preditiva limitada. Modelos mais robustos, como RandomForest e SMOreg, apresentaram os melhores desempenhos, com altos coeficientes de correlação e baixos valores de erro.
+A comparação entre os algoritmos evidenciou que modelos simples, como o ZeroR, são úteis como referência inicial, mas possuem capacidade preditiva limitada. Modelos como LinearRegression, RandomForest e SMOreg apresentaram os melhores desempenhos, com altos coeficientes de correlação e baixos valores de erro.
 
-O RandomForest destacou-se pelo equilíbrio entre desempenho e estabilidade, apresentando bons resultados tanto na validação cruzada quanto no split 70/30. O SMOreg também demonstrou excelente desempenho, especialmente pelo menor erro absoluto médio. Já o IBk mostrou melhora com o ajuste do parâmetro `k`, sendo a configuração com `k=5` a mais adequada entre as testadas.
+O RandomForest destacou-se pelo equilíbrio entre desempenho e estabilidade, apresentando bons resultados tanto na validação cruzada quanto no split 70/30. O LinearRegression também se mostrou muito competitivo, principalmente por alcançar baixo RMSE com um modelo mais simples e interpretável. O SMOreg demonstrou excelente desempenho, especialmente pelo menor erro absoluto médio. Já o IBk mostrou melhora com o ajuste do parâmetro `k`, sendo a configuração com `k=5` a mais adequada entre as testadas.
 
 Por fim, a análise das métricas permitiu interpretar criticamente os resultados, indo além da simples apresentação de valores numéricos. Como a tarefa foi executada como regressão, as métricas corretas foram correlação, MAE, RMSE, RAE e RRSE. Caso seja necessário incluir matriz de confusão e métricas de classificação, recomenda-se realizar uma nova execução com o atributo `Consumo_Energia` discretizado em classes.

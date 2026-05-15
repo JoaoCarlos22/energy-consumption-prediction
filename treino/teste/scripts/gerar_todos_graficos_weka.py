@@ -11,7 +11,11 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR = SCRIPT_DIR.parent
 PROJECT_ROOT = DATA_DIR.parent.parent
 
-CSV_PATH = DATA_DIR / "tabela_resultados_weka_regressao.csv"
+CSV_CANDIDATES = [
+    DATA_DIR / "tabela_resultados_weka_regressao_atualizada.csv",
+    DATA_DIR / "tabela_resultados_weka_regressao.csv",
+]
+CSV_PATH = next((path for path in CSV_CANDIDATES if path.exists()), CSV_CANDIDATES[0])
 OUT_DIR = PROJECT_ROOT / "imagens" / "visualizacoes"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -95,6 +99,7 @@ algorithm_colors = {
     "ZeroR": "#8D99AE",
     "RandomForest": "#2A9D8F",
     "RandomTree": "#F4A261",
+    "LinearRegression": "#5B8E7D",
     "IBk": "#457B9D",
     "SMOreg": "#E76F51",
     "MultilayerPerceptron": "#9B5DE5",
