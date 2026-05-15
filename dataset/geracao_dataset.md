@@ -11,9 +11,7 @@
 
 ## 1. Visão Geral
 
-O dataset simula o consumo de energia elétrica em três setores de atividade (Residencial, Comercial e Industrial), incorporando variáveis contextuais como temperatura, área da unidade e número de ocupantes. O processo de geração foi inteiramente feito em Python com as bibliotecas `pandas` e `numpy`, seguindo especificações rigorosas de distribuição estatística, injeção de ruído e inserção de outliers.
-
-A construção do dataset foi conduzida de forma iterativa por meio de três versões de prompt enviadas ao modelo de linguagem **Claude Sonnet 4.6** (Anthropic). Cada prompt refinou as especificações anteriores, tornando o processo rastreável e metodologicamente rigoroso.
+O dataset simula o consumo de energia elétrica em três setores de atividade (Residencial, Comercial e Industrial), incorporando variáveis contextuais como temperatura, área da unidade e número de ocupantes. A construção do dataset foi conduzida de forma iterativa por meio de três versões de prompt enviadas ao modelo de linguagem **Claude Sonnet 4.6** (Anthropic). Cada prompt refinou as especificações anteriores, seguindo especificações rigorosas de distribuição estatística, injeção de ruído e inserção de outliers.
 
 ---
 
