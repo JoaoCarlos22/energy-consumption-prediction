@@ -50,8 +50,7 @@ A análise da **Matriz Geral de Dispersão** com a aplicação de *Jitter* permi
 
 As principais interpretações são:
 1. **Linearidade**: A forte correlação linear entre Área e Temperatura com o Consumo sugere que modelos baseados em regressão (Linear Regression, M5P) terão um desempenho superior.
-2. **Clusterização Natural**: A clara separação visual entre os setores indica que algoritmos baseados em árvores (Random Forest) ou em instâncias (KNN) conseguirão classificar os perfis de consumo com alta precisão.
-3. **Estabilidade Estatística**: A ausência de "esmagamento" dos pontos nos gráficos prova que o pré-processamento removeu o viés de outliers, preparando o terreno para uma convergência mais rápida dos algoritmos de aprendizado.
+2. **Estabilidade Estatística**: A ausência de "esmagamento" dos pontos nos gráficos prova que o pré-processamento removeu o viés de outliers, preparando o terreno para uma convergência mais rápida dos algoritmos de aprendizado.
 
 ## 6. Conclusões Finais
 A etapa de visualização confirmou que o dataset está estatisticamente preparado para a fase de modelagem. As correlações identificadas não são apenas estatisticamente significativas, mas também logicamente coerentes com o domínio do problema (consumo elétrico regional). 
