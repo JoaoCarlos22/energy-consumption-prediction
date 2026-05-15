@@ -34,7 +34,7 @@ Esta correlação apresentou a relação linear mais robusta do dataset. Observa
 ![Área x Consumo](../imagens/visualizacoes/area_x_consumo.png)
 
 ### 4.2. Temperatura Média vs. Consumo
-Identificou-se uma correlação positiva entre a temperatura e o consumo. Em contextos climáticos elevados, como na região amazônica, este comportamento é fisicamente esperado devido ao aumento da demanda por sistemas de refrigeração e climatização.
+Identificou-se uma correlação positiva entre a temperatura e o consumo. Em contextos climáticos elevados, este comportamento é fisicamente esperado devido ao aumento da demanda por sistemas de refrigeração e climatização.
 
 ![Temperatura x Consumo](../imagens/visualizacoes/temperatura_x_consumo.png)
 
